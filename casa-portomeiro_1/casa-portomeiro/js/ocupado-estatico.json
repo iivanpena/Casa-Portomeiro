@@ -1,0 +1,4 @@
+{
+  "_ayuda": "Solo se usa si la web NO tiene el backend PHP (p. ej. GitHub Pages). 'desde' = día de entrada, 'hasta' = día de salida. Ejemplo: {\"desde\":\"2026-12-30\",\"hasta\":\"2027-01-02\"}",
+  "bloqueos": []
+}
