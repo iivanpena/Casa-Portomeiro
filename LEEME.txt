@@ -1,0 +1,52 @@
+CASA PORTOMEIRO · web con sistema de reservas
+=============================================
+
+1) FOTOS
+   Copia las fotos en la carpeta /fotos con estos nombres (JPG, ideal < 400 KB cada una,
+   1600 px de ancho):
+     hero.jpg  ............ portada (horizontal, la mejor foto de la casa)
+     habitacion-1.jpg ... habitacion-5.jpg
+     cocina.jpg, juegos.jpg, salon.jpg, terraza.jpg, barbacoa.jpg, futbolin.jpg
+     galeria-1.jpg ... galeria-8.jpg   (las que quieras mostrar en la galería)
+   Mientras falte una foto se ve un marcador. Cuando estén todas, en js/config.js pon
+   mostrarMarcadoresDeFoto: false  (los huecos vacíos de la galería desaparecen).
+
+2) DATOS QUE HAY QUE REVISAR (js/config.js y api/config.php)
+   - Teléfono/WhatsApp de la propietaria (en los DOS archivos).
+   - precioNoche (js/config.js) y precio_noche (api/config.php): 200 € por noche, toda la casa.
+     Tienen que ser iguales en los DOS archivos.
+   - propietaria_email y from_email (api/config.php): a dónde llegan los avisos.
+   - site_url (api/config.php): https://tu-dominio.com
+
+3) PUBLICAR EN HOSTINGER (todo funciona: calendario, formulario, panel)
+   - Sube TODO el contenido de esta carpeta a public_html (Administrador de archivos).
+   - Crea una cuenta de email de tu dominio (p. ej. reservas@tudominio.com) y ponla en
+     from_email; así los avisos no caen en spam.
+   - Panel de la propietaria: https://tu-dominio.com/admin/  (cambiar la contraseña al entrar).
+
+4) CÓMO FUNCIONA UNA RESERVA
+   a) El cliente elige fechas y rellena nombre + teléfono.
+   b) La solicitud llega a la propietaria por EMAIL (con el teléfono y un enlace de WhatsApp
+      ya preparado) y queda en el panel /admin.
+   c) Ella escribe al cliente por WhatsApp y le pide la fianza (50 €, Bizum o transferencia).
+   d) Cuando cobra la fianza pulsa "Confirmar" en el panel: esas fechas pasan a salir
+      ocupadas en el calendario de la web.
+   e) El resto del precio se paga en efectivo al llegar.
+   Las reservas que entren por Booking se bloquean a mano en el panel ("Bloquear fechas").
+   También hay un enlace .ics en el panel para sincronizar con Booking / Google Calendar.
+
+5) GITHUB PAGES (solo para enseñar la web al cliente)
+   GitHub Pages no ejecuta PHP: la web funciona igual pero, al enviar el formulario, abre
+   WhatsApp con la solicitud ya escrita (la propietaria recibe el teléfono en el mensaje).
+   El calendario lee las fechas ocupadas de js/ocupado-estatico.json (se edita a mano).
+   Para la versión final usa Hostinger.
+
+6) PRUEBA OBLIGATORIA TRAS SUBIRLA A HOSTINGER (5 minutos, antes de dársela a tu madre)
+   - Requiere PHP 8.1 o superior (Hostinger > Avanzado > Configuración de PHP).
+   - Abre https://tu-dominio.com/data/reservas.json  -> debe dar error 403/404. Si se ve el
+     contenido, avísame: los datos de los clientes estarían expuestos.
+   - Haz una reserva de prueba con tu móvil: comprueba que llega el email a la propietaria y
+     que aparece en /admin. Confírmala y mira que las fechas salen ocupadas; luego elimínala.
+   - Entra en /admin y cambia la contraseña inicial.
+
+Carpetas:  css/  js/  fotos/  api/ (backend PHP)  admin/ (panel)  data/ (reservas; protegida)
