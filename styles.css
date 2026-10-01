@@ -1,0 +1,274 @@
+/* Casa Bicaño e Casa Busto — demo web · estilos compartidos */
+:root{
+  --papel:#F6F7F2;
+  --granito:#E5EAE0;
+  --granito-2:#CBD4C3;
+  --tinta:#1D2620;
+  --lousa:#56645A;
+  --castano:#2C4A33;
+  --castano-2:#A8823A;
+  --musgo:#2F6340;
+  --musgo-2:#244E32;
+  --ok:#2F6B3E;
+  --radio:6px;
+  --ancho:1180px;
+  --serif:"Fraunces", Georgia, serif;
+  --sans:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-size:17px;line-height:1.6;color:var(--tinta);background:var(--papel);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--musgo);outline-offset:3px;border-radius:2px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15;letter-spacing:-.01em}
+h2{font-size:clamp(1.9rem,3.4vw,2.7rem)}
+h3{font-size:1.35rem}
+p{max-width:64ch}
+.wrap{width:100%;max-width:var(--ancho);margin:0 auto;padding:0 20px}
+
+/* Aviso demo */
+.demo-bar{background:var(--tinta);color:#E9E7E1;font-size:.85rem;text-align:center;padding:8px 16px}
+
+/* Cabecera */
+.head{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--granito-2)}
+.head .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{font-family:var(--serif);font-size:1.3rem;text-decoration:none;color:var(--castano);white-space:nowrap}
+.nav{display:flex;gap:4px;align-items:center}
+.nav a{text-decoration:none;font-size:.95rem;padding:8px 12px;border-radius:var(--radio);color:var(--tinta)}
+.nav a:hover{background:var(--granito)}
+.nav a[aria-current="page"]{color:var(--castano);font-weight:600}
+.nav .btn{margin-left:8px}
+.menu-btn{display:none;background:none;border:1px solid var(--granito-2);border-radius:var(--radio);padding:8px 12px;font:inherit;font-size:.95rem;cursor:pointer}
+
+/* Botones */
+.btn{display:inline-block;background:var(--musgo);color:#fff !important;text-decoration:none;padding:12px 22px;border-radius:var(--radio);font-weight:600;font-size:.98rem;border:0;cursor:pointer;font-family:var(--sans);transition:background .2s}
+.btn:hover{background:var(--musgo-2)}
+.btn.claro{background:transparent;color:var(--tinta) !important;border:1.5px solid var(--tinta)}
+.btn.claro:hover{background:var(--tinta);color:#fff !important}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+
+/* Hero con rótulo de tienda */
+.hero{position:relative;min-height:min(88vh,760px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--castano)}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,15,.78) 0%,rgba(20,18,15,.2) 55%,rgba(20,18,15,.05) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-bottom:64px}
+.rotulo{display:block;margin-bottom:22px;animation:colgar 1.1s cubic-bezier(.2,.8,.2,1) both}
+.rotulo small{display:block;font-size:.95rem;letter-spacing:.04em;color:#E8E2C8;margin-bottom:8px}
+.rotulo h1{font-size:clamp(2.4rem,6.5vw,4.8rem);color:#fff;line-height:1.02;font-weight:500;text-wrap:balance}
+.rotulo h1 span{font-style:italic;font-weight:400;color:#E8D9A8}
+/* Tarjetas de las dos casas */
+.casas{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:36px}
+.casa-card{background:var(--papel);border:1px solid var(--granito-2);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.casa-card img{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--granito-2)}
+.casa-card .cuerpo{padding:22px 24px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.casa-card h3{font-size:1.6rem;color:var(--castano)}
+.casa-card .mini{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--lousa);font-size:.95rem}
+.casa-card .mini b{color:var(--tinta);font-weight:600}
+.casa-card .acc{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+.nota-casa{display:inline-flex;align-items:baseline;gap:6px;font-size:.92rem;color:var(--lousa)}
+.nota-casa b{font-family:var(--serif);font-size:1.3rem;color:var(--musgo);font-weight:500}
+/* Bloque destacado comida casera */
+.casero{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start;background:var(--papel);border:1px solid var(--granito-2);border-left:4px solid var(--castano-2);border-radius:8px;padding:28px 30px}
+.casero .ico{font-family:var(--serif);font-size:2.6rem;color:var(--castano-2);line-height:1}
+/* Pestañas */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tabs button{font:inherit;font-size:.95rem;font-weight:600;border:1px solid var(--granito-2);background:var(--papel);color:var(--tinta);border-radius:999px;padding:8px 18px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--musgo);border-color:var(--musgo);color:#fff}
+.tira{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:30px}
+.tira button{border:0;padding:0;background:var(--granito-2);border-radius:var(--radio);overflow:hidden;aspect-ratio:4/3;cursor:zoom-in}
+.tira img{width:100%;height:100%;object-fit:cover}
+@media (max-width:900px){.casas{grid-template-columns:1fr}.tira{grid-template-columns:repeat(2,1fr)}.casero{grid-template-columns:1fr;gap:10px}}
+/* Tarifas */
+.tarifas{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--granito-2);border-radius:var(--radio);background:var(--papel);margin-top:28px}
+.tarifas div{padding:22px;border-right:1px solid var(--granito-2)}
+.tarifas div:last-child{border-right:0}
+.tarifas b{display:block;font-family:var(--serif);font-weight:400;font-size:2rem;color:var(--musgo)}
+.tarifas h3{font-size:1.1rem;color:var(--castano)}
+.tarifas p{color:var(--lousa);font-size:.93rem;margin-top:4px}
+/* Barras de puntuación */
+.barras{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 40px;margin-top:30px}
+.barra{display:grid;grid-template-columns:1fr auto;gap:6px;font-size:.95rem}
+.barra i{grid-column:1/-1;height:6px;border-radius:3px;background:var(--granito-2);position:relative;overflow:hidden}
+.barra i::after{content:"";position:absolute;inset:0;width:var(--v);background:var(--castano)}
+.barra b{font-variant-numeric:tabular-nums}
+@media (max-width:900px){.tarifas{grid-template-columns:1fr}.tarifas div{border-right:0;border-bottom:1px solid var(--granito-2)}.tarifas div:last-child{border-bottom:0}.barras{grid-template-columns:1fr}}
+@media (max-width:560px){.grados{width:60px;height:60px;font-size:1.1rem;top:-14px;right:-10px}}
+@keyframes colgar{from{transform:translateY(-24px) rotate(-2deg);opacity:0}to{transform:none;opacity:1}}
+.hero p.lead{font-size:clamp(1.05rem,1.8vw,1.3rem);max-width:40ch;margin-bottom:26px;color:#F3F1EC}
+.hero .acciones{display:flex;gap:12px;flex-wrap:wrap}
+.hero .btn.claro{color:#fff !important;border-color:#fff}
+.hero .btn.claro:hover{background:#fff;color:var(--tinta) !important}
+
+/* Cabecera de página interior */
+.page-head{background:var(--granito);padding:56px 0 44px;border-bottom:1px solid var(--granito-2)}
+.page-head h1{font-size:clamp(2.2rem,5vw,3.4rem);color:var(--castano)}
+.page-head p{color:var(--lousa);margin-top:10px;font-size:1.1rem}
+
+/* Secciones */
+section.bloque{padding:84px 0}
+section.bloque.gris{background:var(--granito)}
+.intro{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.intro p{margin-top:16px;color:#3A4247}
+.intro img{border-radius:var(--radio);aspect-ratio:4/5;object-fit:cover;width:100%}
+
+/* Datos rápidos */
+.datos{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--granito-2);border-bottom:1px solid var(--granito-2)}
+.datos div{padding:26px 18px;border-right:1px solid var(--granito-2)}
+.datos div:last-child{border-right:0}
+.datos b{display:block;font-family:var(--serif);font-weight:400;font-size:1.9rem;color:var(--castano)}
+.datos span{color:var(--lousa);font-size:.95rem}
+
+/* Destacados */
+.destacados{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
+.destacado img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radio);background:var(--granito-2)}
+.destacado h3{margin-top:16px;color:var(--castano)}
+.destacado p{margin-top:6px;color:#3A4843;font-size:.98rem}
+@media (max-width:900px){.destacados{grid-template-columns:1fr}}
+
+/* Sello de valoración */
+.nota{display:flex;gap:28px;flex-wrap:wrap;margin-top:28px}
+.nota div{display:flex;align-items:baseline;gap:10px}
+.nota b{font-family:var(--serif);font-weight:400;font-size:2.4rem;color:var(--musgo)}
+.nota span{color:var(--lousa);font-size:.95rem;line-height:1.3}
+
+/* Mosaico de fotos */
+.mosaico{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:230px 230px;gap:10px;margin-top:36px}
+.mosaico a{overflow:hidden;border-radius:var(--radio);background:var(--granito-2)}
+.mosaico a:first-child{grid-row:span 2}
+.mosaico img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.mosaico a:hover img{transform:scale(1.04)}
+
+/* Listas de servicios */
+.servicios{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 40px;margin-top:40px}
+.servicios h3{font-size:1.15rem;margin-bottom:10px;color:var(--castano)}
+.servicios ul{list-style:none}
+.servicios li{padding:7px 0;border-bottom:1px solid var(--granito-2);font-size:.98rem}
+
+/* Normas */
+.normas{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:32px;border:1px solid var(--granito-2);border-radius:var(--radio);background:var(--papel)}
+.normas div{padding:22px;border-right:1px solid var(--granito-2)}
+.normas div:last-child{border-right:0}
+.normas b{display:block;font-size:.9rem;color:var(--lousa);font-weight:500}
+.normas p{font-family:var(--serif);font-size:1.25rem;margin-top:4px}
+
+/* Opiniones */
+.citas{columns:3 300px;column-gap:24px;margin-top:40px}
+.cita{break-inside:avoid;background:var(--papel);border-left:3px solid var(--castano-2);padding:22px 24px;margin-bottom:24px}
+.cita blockquote{font-family:var(--serif);font-size:1.2rem;line-height:1.4}
+.cita footer{margin-top:12px;color:var(--lousa);font-size:.9rem}
+.puntuaciones{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:8px}
+.plataforma{background:var(--papel);border:1px solid var(--granito-2);border-radius:var(--radio);padding:28px}
+.plataforma b{font-family:var(--serif);font-weight:400;font-size:3rem;color:var(--musgo);line-height:1}
+.plataforma p{color:var(--lousa);margin-top:6px}
+
+/* Galería */
+.galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.galeria button{border:0;padding:0;background:var(--granito-2);border-radius:var(--radio);overflow:hidden;aspect-ratio:4/3;cursor:zoom-in}
+.galeria img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.galeria button:hover img{transform:scale(1.04)}
+.lightbox{position:fixed;inset:0;background:rgba(15,14,12,.94);z-index:100;display:none;align-items:center;justify-content:center}
+.lightbox.abierto{display:flex}
+.lightbox img{max-width:92vw;max-height:84vh;object-fit:contain;border-radius:4px}
+.lightbox button{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:0;font-size:1.6rem;width:52px;height:52px;border-radius:50%;cursor:pointer}
+.lightbox button:hover{background:rgba(255,255,255,.25)}
+.lb-cerrar{top:18px;right:18px}
+.lb-prev{left:18px;top:50%;transform:translateY(-50%)}
+.lb-next{right:18px;top:50%;transform:translateY(-50%)}
+.lb-cont{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#ccc;font-size:.9rem}
+
+/* Entorno */
+.mapa{width:100%;height:420px;border:0;border-radius:var(--radio);margin-top:28px;background:var(--granito-2)}
+.lugares{display:grid;grid-template-columns:repeat(2,1fr);gap:0 48px;margin-top:36px}
+.lugar{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--granito-2)}
+.lugar span{color:var(--lousa);white-space:nowrap}
+
+/* Reservas */
+.reserva{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:start}
+.cal{background:var(--papel);border:1px solid var(--granito-2);border-radius:var(--radio);padding:22px}
+.cal-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.cal-top h3{font-size:1.25rem;text-transform:capitalize}
+.cal-top button{background:var(--granito);border:0;width:40px;height:40px;border-radius:50%;font-size:1.1rem;cursor:pointer}
+.cal-top button:hover{background:var(--granito-2)}
+.cal-top button:disabled{opacity:.3;cursor:default}
+.dias{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.dias .dow{font-size:.8rem;color:var(--lousa);padding-bottom:6px}
+.dia{aspect-ratio:1;border:0;background:transparent;border-radius:var(--radio);font:inherit;font-size:.95rem;cursor:pointer;color:var(--tinta)}
+.dia:hover:not(:disabled){background:var(--granito)}
+.dia:disabled{color:#B8B5AE;cursor:not-allowed}
+.dia.ocupado{text-decoration:line-through;color:#B39A8A}
+.dia.rango{background:#D7E6D9;border-radius:0}
+.dia.ini,.dia.fin{background:var(--musgo);color:#fff}
+.leyenda{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:.85rem;color:var(--lousa)}
+.leyenda i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.form{background:var(--papel);border:1px solid var(--granito-2);border-radius:var(--radio);padding:26px}
+.resumen{background:var(--granito);border-radius:var(--radio);padding:16px 18px;margin-bottom:20px;font-size:.95rem}
+.resumen .fila{display:flex;justify-content:space-between;padding:3px 0}
+.resumen .total{border-top:1px solid var(--granito-2);margin-top:8px;padding-top:8px;font-weight:700}
+label{display:block;font-size:.9rem;font-weight:600;margin:14px 0 6px}
+input,select,textarea{width:100%;font:inherit;font-size:1rem;padding:11px 13px;border:1px solid #C9C5BC;border-radius:var(--radio);background:#fff;color:var(--tinta)}
+textarea{min-height:90px;resize:vertical}
+.fila2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.nota-form{font-size:.85rem;color:var(--lousa);margin-top:12px}
+.form .btn{width:100%;margin-top:20px;padding:14px}
+.exito{display:none;text-align:center;padding:20px 6px}
+.exito.visible{display:block}
+.exito h3{color:var(--ok);margin-bottom:8px}
+.error{color:#9B2C2C;font-size:.9rem;margin-top:10px;min-height:1.2em}
+
+/* CTA final */
+.cta{background:var(--castano);color:#E9F0E8;text-align:center;padding:76px 0}
+.cta h2{color:#fff}
+.cta p{margin:12px auto 26px;color:#C9D9C9}
+.cta .btn{background:#FFF8EC;color:var(--castano) !important}
+.cta .btn:hover{background:#fff}
+
+/* Pie */
+.pie{background:var(--tinta);color:#C9CDCF;padding:52px 0 30px;font-size:.93rem}
+.pie .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.pie h4{font-family:var(--serif);font-weight:400;color:#fff;font-size:1.2rem;margin-bottom:10px}
+.pie a{text-decoration:none;display:block;padding:3px 0}
+.pie a:hover{color:#fff}
+.pie .legal{border-top:1px solid #353B3F;margin-top:36px;padding-top:18px;font-size:.82rem;color:#8C9498}
+
+/* Aparición suave, solo una vez por sección */
+.aparece{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s}
+.aparece.visto{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+  .aparece{opacity:1;transform:none}
+}
+
+/* Responsive */
+@media (max-width:900px){
+  .menu-btn{display:block}
+  .nav{display:none;position:absolute;top:68px;left:0;right:0;background:var(--papel);flex-direction:column;align-items:stretch;padding:10px 16px 18px;border-bottom:1px solid var(--granito-2)}
+  .nav.abierto{display:flex}
+  .nav a{padding:12px}
+  .nav .btn{margin:8px 0 0;text-align:center}
+  .intro,.reserva{grid-template-columns:1fr;gap:32px}
+  .intro img{aspect-ratio:4/3}
+  .datos{grid-template-columns:repeat(2,1fr)}
+  .datos div:nth-child(2){border-right:0}
+  .datos div:nth-child(-n+2){border-bottom:1px solid var(--granito-2)}
+  .servicios{grid-template-columns:1fr 1fr}
+  .normas{grid-template-columns:1fr}
+  .normas div{border-right:0;border-bottom:1px solid var(--granito-2)}
+  .normas div:last-child{border-bottom:0}
+  .mosaico{grid-template-columns:1fr 1fr;grid-template-rows:260px 150px 150px}
+  .mosaico a:first-child{grid-column:span 2;grid-row:auto}
+  .mosaico a:nth-child(n+6){display:none}
+  .lugares,.puntuaciones{grid-template-columns:1fr}
+  .pie .cols{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  section.bloque{padding:60px 0}
+  .servicios{grid-template-columns:1fr}
+  .fila2{grid-template-columns:1fr}
+  .rotulo{padding:16px 22px 14px}
+  .hero .wrap{padding-bottom:40px}
+  .lb-prev,.lb-next{top:auto;bottom:60px;transform:none}
+}
+input[type=radio],input[type=checkbox]{accent-color:var(--musgo)}

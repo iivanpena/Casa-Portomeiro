@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Reservar · Bicaño e Busto</title>
+<meta name="description" content="Casa Bicaño y Casa Busto: dos casas rurales con piscina en Armenteira (Meis), en O Salnés, para familias, grupos y peregrinos. Reserva directa.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<div id="cabecera"></div>
+<main>
+<header class="page-head"><div class="wrap">
+  <h1>Reservar</h1>
+  <p>Elige casa y fechas, déjanos tus datos y te llamamos para confirmar. Sin comisiones.</p>
+</div></header>
+
+<section class="bloque">
+  <div class="wrap">
+    <div class="tabs" role="radiogroup" aria-label="Elige la casa" style="margin-bottom:26px">
+      <label class="btn claro" style="cursor:pointer"><input type="radio" name="casa" value="bicano" style="width:auto;margin-right:8px">Casa Bicaño · 4 habitaciones</label>
+      <label class="btn claro" style="cursor:pointer"><input type="radio" name="casa" value="busto" style="width:auto;margin-right:8px">Casa Busto · 5 habitaciones</label>
+    </div>
+  </div>
+  <div class="wrap reserva">
+    <div class="cal">
+      <div class="cal-top">
+        <button type="button" id="mes-prev" aria-label="Mes anterior">‹</button>
+        <h3 id="mes-titulo" aria-live="polite"></h3>
+        <button type="button" id="mes-next" aria-label="Mes siguiente">›</button>
+      </div>
+      <div class="dias" id="calendario"></div>
+      <div class="leyenda">
+        <span><i style="background:var(--musgo)"></i>Tu selección</span>
+        <span><i style="background:#D7E6D9"></i>Noches elegidas</span>
+        <span><i style="background:var(--granito-2)"></i>Ocupado (tachado)</span>
+      </div>
+      <p class="error" id="error-fechas" role="alert"></p>
+    </div>
+
+    <div class="form">
+      <div class="resumen" id="resumen"></div>
+      <form id="form-reserva" novalidate>
+        <label for="nombre">Nombre y apellidos</label>
+        <input id="nombre" name="nombre" required autocomplete="name">
+        <div class="fila2">
+          <div><label for="telefono">Teléfono</label>
+            <input id="telefono" name="telefono" type="tel" required autocomplete="tel" pattern="[+0-9 ]{9,}"></div>
+          <div><label for="huespedes">Huéspedes</label>
+            <select id="huespedes" name="huespedes"></select></div>
+        </div>
+        <label for="email">Correo electrónico</label>
+        <input id="email" name="email" type="email" required autocomplete="email">
+        <label style="display:flex;gap:10px;align-items:center;font-weight:500"><input type="checkbox" id="comida" name="comida" style="width:auto">Me interesa la comida casera</label>
+        <label for="mensaje">Mensaje (opcional)</label>
+        <textarea id="mensaje" name="mensaje" placeholder="Hora aproximada de llegada, si venís con mascota, si sois peregrinos..."></textarea>
+        <button class="btn" id="btn-reservar" type="submit" disabled>Enviar solicitud de reserva</button>
+        <p class="nota-form">No se cobra nada ahora. Te llamamos para confirmar la disponibilidad y la señal.</p>
+      </form>
+      <div class="exito" id="exito" role="status"><h3>Solicitud enviada</h3><p></p></div>
+    </div>
+  </div>
+</section>
+</main>
+<div id="pie"></div>
+</body>
+</html>
